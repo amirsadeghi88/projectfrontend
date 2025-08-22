@@ -1,7 +1,19 @@
-import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
-import { theme } from "./theme";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Pets from "../pages/Pets";
+import Appointments from "../pages/Appointments";
 
-export default function App() {
-  return <MantineProvider theme={theme}>App</MantineProvider>;
+function App() {
+  return (
+    <Router>
+      <nav>
+        <Link to="/">Pets</Link> | <Link to="/appointments">Appointments</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Pets />} />
+        <Route path="/appointments" element={<Appointments />} />
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;
